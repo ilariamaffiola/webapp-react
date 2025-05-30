@@ -1,6 +1,7 @@
 import DefaultLayout from "./layout/DefaultLayout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
+import MoviePage from "./pages/MoviePage";
 function App() {
   return (
     <>
@@ -8,7 +9,7 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />}>
             <Route index element={<Homepage />}></Route>
-            <Route path="/movies/:id" element={<h1>Dettaglio film</h1>}></Route>
+            <Route path="/movies/:id" element={<MoviePage />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
