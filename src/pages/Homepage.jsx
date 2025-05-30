@@ -61,7 +61,7 @@ const Homepage = () => {
       <h1 className="text-primary my-4">Movie List</h1>
       <div className="row g-4">
         {movies.map((movie) => (
-          <MovieCard movie={movie} />
+          <MovieCard movie={movie} key={`movie-${movie.id}`} />
         ))}
       </div>
     </>
