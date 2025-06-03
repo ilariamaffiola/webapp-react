@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Stars from "../components/Stars";
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -44,7 +45,9 @@ const MoviePage = () => {
           <div className="col-12" key={`rew-${rew.id}`}>
             <div className="card p-2 rounded">
               <h4>{rew.name}</h4>
-              <p>{rew.vote}</p>
+              <p>
+                <Stars vote={rew.vote} />
+              </p>
               <p>{rew.text}</p>
             </div>
           </div>
