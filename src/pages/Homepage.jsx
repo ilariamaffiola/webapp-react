@@ -6,7 +6,7 @@ import axios from "axios";
 
 const Homepage = () => {
   const [movies, setMovies] = useState([]);
-  const fetchBooks = () => {
+  const fetchMovies = () => {
     axios
       .get("http://127.0.0.1:3000/api/movies/")
       .then((resp) => {
@@ -17,7 +17,7 @@ const Homepage = () => {
       });
   };
   useEffect(() => {
-    fetchBooks();
+    fetchMovies();
   }, []);
 
   return (
