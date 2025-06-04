@@ -1,6 +1,17 @@
 import React from "react";
-
+import { useState } from "react";
+const initialData = {
+  name: "",
+  vote: "",
+  text: "",
+};
 const CreateReviewPage = () => {
+  const [formData, setFormData] = useState(initialData);
+
+  const setFieldValue = (e) => {
+    console.log(e);
+  };
+
   return (
     <div>
       <div className="container">
@@ -19,6 +30,8 @@ const CreateReviewPage = () => {
                     type="text"
                     className="form-control"
                     placeholder="Nome"
+                    value={formData.name}
+                    onChange={setFieldValue}
                   />
                 </div>
                 <div className="col-12">
@@ -29,13 +42,20 @@ const CreateReviewPage = () => {
                     type="number"
                     className="form-control"
                     placeholder="Vote"
+                    value={formData.vote}
+                    onChange={setFieldValue}
                   />
                 </div>
                 <div className="col-12">
                   <label htmlFor="" className="control-label">
                     Text
                   </label>
-                  <textarea name="text" className="form-control"></textarea>
+                  <textarea
+                    name="text"
+                    className="form-control"
+                    value={formData.text}
+                    onChange={setFieldValue}
+                  ></textarea>
                 </div>
               </div>
               <button type="submit" className="btn btn-primary">
