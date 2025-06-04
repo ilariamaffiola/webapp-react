@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Stars from "../components/Stars";
+import { Link } from "react-router-dom";
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -44,6 +45,11 @@ const MoviePage = () => {
         </div>
       </div>
       <div className="row g-4 mt-4">
+        <div className="col-12">
+          <Link className="text-decoration-none" to={`/movies/${id}/review`}>
+            <button className="btn btn-primary">Aggiungi recensione</button>
+          </Link>
+        </div>
         {movie.reviews.map((rew) => (
           <div className="col-12" key={`rew-${rew.id}`}>
             <div className="card p-2 rounded">

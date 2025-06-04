@@ -13,7 +13,10 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route index element={<Homepage />}></Route>
             <Route path="/movies/:id" element={<MoviePage />}></Route>
-            <Route path="/movies/create" element={CreateReviewPage}></Route>
+            <Route
+              path="/movies/:id/review"
+              element={<CreateReviewPage />}
+            ></Route>
             <Route path="*" element={<NotFoundPage />}></Route>
           </Route>
         </Routes>
