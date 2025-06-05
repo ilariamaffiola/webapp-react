@@ -4,29 +4,35 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Stars from "../components/Stars";
 import { Link } from "react-router-dom";
+import { useLoader } from "../contexts/LoaderContext";
 
 const MoviePage = () => {
+  const { loader, setLoader } = useLoader();
   const { id } = useParams();
   const [movie, setMovie] = useState({
     reviews: [],
   });
 
-  const fetchMovie = () => {
-    axios
-      .get(`http://127.0.0.1:3000/api/movies/${id}`)
-      .then((resp) => {
-        setMovie(resp.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   useEffect(() => {
-    fetchMovie();
+    setLoader(true);
+    setTimeout(() => {
+      const fetchMovie = () => {
+        axios
+          .get(`http://127.0.0.1:3000/api/movies/${id}`)
+          .then((resp) => {
+            setMovie(resp.data);
+            setLoader(false);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+      fetchMovie();
+    }, 3000);
   }, [id]);
   return (
     <>
+      <div>{loader}</div>
       <div className="row">
         <div className="col-12 col-md-6 col-lg-4">
           <img className="img-fluid " src={movie.image} alt="Movie" />

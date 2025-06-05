@@ -24,7 +24,7 @@ const Homepage = () => {
           });
       };
       fetchMovies();
-    }, 5000);
+    }, 3000);
   }, []);
 
   return (
