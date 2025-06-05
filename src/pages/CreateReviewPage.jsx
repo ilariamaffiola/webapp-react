@@ -58,6 +58,8 @@ const CreateReviewPage = () => {
                   </label>
                   <input
                     type="number"
+                    min="0"
+                    max="5"
                     name="vote"
                     className="form-control"
                     placeholder="Vote"
