@@ -1,8 +1,10 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
-
+import Loader from "../components/Loader";
+import { useLoader } from "../contexts/LoaderContext";
 const DefaultLayout = () => {
+  const { loader } = useLoader();
   return (
     <>
       <Header />
@@ -11,6 +13,7 @@ const DefaultLayout = () => {
           <Outlet />
         </div>
       </main>
+      {loader && <Loader />}
     </>
   );
 };
